@@ -1,6 +1,3 @@
-// funcion flecha con argumentos
-const doubler = (item) => item * 2
-
 // funcion flecha con un solo parametro
 const double = item => item * 2
 
