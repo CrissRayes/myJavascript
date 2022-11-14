@@ -1,48 +1,102 @@
 // que es destructuring?
 // es una forma de extraer valores de un objeto o array y asignarlos a variables
 
+// destructuring con arrays
 // ejemplo de destructuring de un array
-const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const [primero, segundo, tercero, ...resto] = numeros;
-console.log(primero, segundo, tercero, resto);
+const introduccion = ['hola', 'mundo', 'javascript']
+const [saludo, mundo, lenguaje] = introduccion
+console.log(saludo) // hola
+console.log(mundo) // mundo
+console.log(lenguaje) // javascript
 
+// destructuring con declaracion previa de variables
+const introduccion = ['hola', 'mundo', 'javascript']
+let saludo, mundo, lenguaje
+[saludo, mundo, lenguaje] = introduccion
+console.log(saludo) // hola
+console.log(mundo) // mundo
+console.log(lenguaje) // javascript
+
+// destructuring omitiendo elementos de un array
+const introduccion = ['hola', 'mundo', 'javascript']
+const [saludo, , lenguaje] = introduccion
+console.log(saludo) // hola
+console.log(lenguaje) // javascript
+
+// destructuring con rest operator
+const introduccion = ['hola', 'mundo', 'javascript']
+const [saludo, ...resto] = introduccion
+console.log(saludo) // hola
+console.log(resto) // ['mundo', 'javascript']
+
+// destructuring con funciones
+function obtenerArreglo() {
+  return ['hola', 'mundo', 'javascript']
+}
+const [saludo, mundo, lenguaje] = obtenerArreglo()
+console.log(saludo) // hola
+console.log(mundo) // mundo
+console.log(lenguaje) // javascript
+
+// destructuring con valores predeterminados
+const introduccion = ['hola', 'mundo']
+const [saludo, mundo, lenguaje = 'javascript'] = introduccion // si no existe el elemento en el array, se asigna el valor predeterminado
+console.log(saludo) // hola
+console.log(mundo) // mundo
+console.log(lenguaje) // javascript
+
+// destructuring con objetos
 // ejemplo de destructuring de un objeto
 const persona = {
-  nombre: "Juan",
-  apellido: "Perez",
-  edad: 30,
-  direccion: {
-    ciudad: "Buenos Aires",
-    pais: "Argentina",
-  },
-};
-const { nombre, apellido, edad, direccion } = persona;
-console.log(nombre, apellido, edad, direccion); // Juan Perez 30 {ciudad: "Buenos Aires", pais: "Argentina"}
+  nombre: 'jose',
+  apellido: 'perez',
+  edad: 30
+}
+const { nombre, apellido, edad } = persona // se extraen los valores del objeto y se asignan a variables con el mismo nombre
+console.log(nombre) // jose
+console.log(apellido) // perez
+console.log(edad) // 30
 
+// destructuring asignando variables a objeto no declarado
+const { nombre, apellido, edad } = {
+  nombre: 'jose',
+  apellido: 'perez',
+  edad: 30
+}
+console.log(nombre) // jose
+console.log(apellido) // perez
+console.log(edad) // 30
 
-const HIGH_TEMPERATURES = {
-  yesterday: 75,
-  today: 77,
-  tomorrow: 80
-};
+// destructuring con declaracion de variables antes de ser asignadas
+let persona = {
+  nombre: 'jose',
+  apellido: 'perez',
+  edad: 30
+}
+let nombre, apellido, edad
+({ nombre, apellido, edad } = persona)
+console.log(nombre) // jose
+console.log(apellido) // perez
+console.log(edad) // 30
 
-// destructuring
-const { today, tomorrow } = HIGH_TEMPERATURES;
-// destructuring equivalent
-const { today: highToday, tomorrow: highTomorrow } = HIGH_TEMPERATURES;
+// destructuring con alias
+const persona = {
+  nombre: 'jose',
+  apellido: 'perez',
+  edad: 30
+}
+const { nombre: nombrePersona, apellido: apellidoPersona, edad: edadPersona } = persona
+console.log(nombrePersona) // jose
+console.log(apellidoPersona) // perez
+console.log(edadPersona) // 30
 
-// destructuring de objetos anidados
-// Reemplaza las dos asignaciones con una sintaxis de desestructuración equivalente. Todavía deben seguir asignando las variables lowToday y highToday con los valores de today.low y today.high del objeto LOCAL_FORECAST.
-const LOCAL_FORECAST = {
-  yesterday: { low: 61, high: 75 },
-  today: { low: 64, high: 77 },
-  tomorrow: { low: 68, high: 80 }
-};
-// destructuring equivalent
-const { today: { low: lowToday, high: highToday } } = LOCAL_FORECAST;
-
-let a = 8, b = 6;
-// Only change code below this line
-[a, b] = [b, a]
-console.log(a, b) // 6 8
+// destructuring con valores predeterminados
+const persona = {
+  nombre: 'jose',
+  apellido: 'perez'
+}
+const { nombre, apellido, edad = 30 } = persona // si no existe el elemento en el objeto, se asigna el valor predeterminado
+console.log(nombre) // jose
+console.log(apellido) // perez
+console.log(edad) // 30
 
