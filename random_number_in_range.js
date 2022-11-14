@@ -14,6 +14,7 @@ const random = () => {
 }
 console.log(random()); // 1 - 10
 
+//////////////////////////////////////////////////////////////
 // Using node crypto module to generate random number
 // how to require crypto module
 const crypto = require('crypto');
