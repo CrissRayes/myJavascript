@@ -15,3 +15,15 @@ const doble = numbers.map((number) => {
 
 // funcion flecha con parametro por defecto
 const increment = (number, value = 1) => number + value
+
+// arrow function with nested if inside
+const isUserValid = (user) => {
+  if (user) {
+    if (user.admin) {
+      return true
+    }
+  }
+  return false
+}
+
+
