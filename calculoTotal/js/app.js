@@ -12,5 +12,6 @@ color.onchange = (e) => {
 
 boton.onclick = (e) => {
   e.preventDefault()
-  resultado.innerHTML = precio * unidades.value
+  const total = precio * unidades.value
+  resultado.innerHTML = total
 }
