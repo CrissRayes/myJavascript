@@ -1,17 +1,19 @@
-const precio = Number(document.querySelector('#precio').innerHTML)
-const unidades = document.querySelector('#unidades')
-const resultado = document.querySelector('#resultado')
+// evento click en el boton del formulario
 const boton = document.querySelector('#boton')
-const color = document.querySelector('#color')
-const circulo = document.querySelector('#circulo')
-
-color.onchange = (e) => {
+boton.onclick = (e) => {
+  const precio = Number(document.querySelector('#precio').innerHTML)
+  const unidades = document.querySelector('#unidades').value
+  const resultado = document.querySelector('#resultado')
   e.preventDefault()
-  circulo.style.backgroundColor = color.value
+  const total = precio * unidades
+  resultado.innerHTML = total
 }
 
-boton.onclick = (e) => {
+// evento para input del color
+const cantidad = document.querySelector('#cantidad')
+color.onchange = (e) => {
   e.preventDefault()
-  const total = precio * unidades.value
-  resultado.innerHTML = total
+  const circulo = document.querySelector('#circulo')
+  const color = document.querySelector('#color').value
+  circulo.style.backgroundColor = color
 }
