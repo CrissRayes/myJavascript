@@ -1,16 +1,26 @@
-const precio = Number(document.querySelector('#precio').innerHTML)
-const unidades = document.querySelector('#unidades')
-const resultado = document.querySelector('#resultado')
+// button event onclick
 const boton = document.querySelector('#boton')
-const color = document.querySelector('#color')
-const circulo = document.querySelector('#circulo')
-
-color.onchange = (e) => {
-  e.preventDefault()
-  circulo.style.backgroundColor = color.value
-}
 
 boton.onclick = (e) => {
+  const precio = Number(document.querySelector('#precio').innerHTML)
+  const unidades = document.querySelector('#unidades').value
+  const resultado = document.querySelector('#resultado')
   e.preventDefault()
-  resultado.innerHTML = precio * unidades.value
+
+  // calculating total and showing it
+  const total = precio * unidades
+  resultado.innerHTML = total
+
+  // show units at #cantidad
+  const cantidad = document.querySelector('#cantidad')
+  cantidad.innerHTML = unidades
+
+}
+
+// input event for changing color
+color.onchange = (e) => {
+  e.preventDefault()
+  const circulo = document.querySelector('#circulo')
+  const color = document.querySelector('#color').value
+  circulo.style.backgroundColor = color
 }

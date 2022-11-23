@@ -13,7 +13,7 @@
 }
 
 .card {
-  background-color: #27ae60;
+  background-color: darkolivegreen;
 }
 
 .card-img-top {
@@ -36,5 +36,5 @@
 
 .btn {
   margin-bottom: 1rem;
-  border: solid 2px #cecece;
+  background-color: orangered;
 }
