@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Cálculo Total</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <img class="card-img-top" src="/assets/img/macbook.jpeg" alt="macbook pro">
+          <h4>Laptop Gamer AMD</h4>
+          <form id="formulario">
+            <input type="text" id="unidades" name="unidades" required>
+            <input type="text" id="color" name="color" required>
+            <div>
+              <p>Precio:</p>
+              <p id="precio">400000</p>
+            </div>
+            <button type="submit" class="btn btn-primary" id="boton">Calcular Total</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <p>Total:</p>
+        <p id="resultado">resultado</p>
+        <div>
+          <p>Color: </p>
+          <div id="circulo" class="circulo"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
