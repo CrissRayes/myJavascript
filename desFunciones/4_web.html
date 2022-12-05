@@ -21,7 +21,7 @@
     // si se presiona la letra "s" el color sera verde
     // si se presiona la letra "d" el color sera cafe
 
-    let color = "";
+    let color = ""
     document.addEventListener("keydown", (e) => {
       if (event.key === "a") {
         color = "red"
@@ -34,14 +34,14 @@
     })
     // agregar un evento de click a cada div para que al hacer click cambie de color al color guardado en la variable global
     pintar = (div, color) => {
-      div.style.backgroundColor = color;
+      div.style.backgroundColor = color
     }
 
     // recorrer todos los div para pasarles la funcion pintar
-    let divs = document.querySelectorAll("div");
+    let divs = document.querySelectorAll("div")
     divs.forEach((div) => {
       div.addEventListener("click", () => {
-        pintar(div, color);
+        pintar(div, color)
       })
     })
   </script>
