@@ -9,10 +9,43 @@
 </head>
 
 <body>
-  <div style="width: 200px; height:200px; background-color:aqua">div 1</div>
-  <div style="width: 200px; height:200px; background-color:bisque">div 1</div>
-  <div style="width: 200px; height:200px; background-color:blueviolet">div 1</div>
-  <div style="width: 200px; height:200px; background-color:brown">div 1</div>
+  <div style="width: 200px; height:200px; background-color:blue" id="div-1"></div>
+  <div style="width: 200px; height:200px; background-color:bisque" id="div-2"></div>
+  <div style="width: 200px; height:200px; background-color:blueviolet" id="div-3"></div>
+  <div style="width: 200px; height:200px; background-color:purple" id="div-4"></div>
+
+
+  <script>
+    // crear un script que guarde dentro de una variable global un color dependiendo de la letra del teclado presionada
+    // si se presiona la letra "a" el color sera rojo
+    // si se presiona la letra "s" el color sera verde
+    // si se presiona la letra "d" el color sera cafe
+
+    let color = "";
+    document.addEventListener("keydown", (e) => {
+      if (event.key === "a") {
+        color = "red"
+      } else if (event.key === "s") {
+        color = "green"
+      } else if (event.key === "d") {
+        color = "brown"
+      }
+      console.log(color)
+    })
+    // agregar un evento de click a cada div para que al hacer click cambie de color al color guardado en la variable global
+    pintar = (div, color) => {
+      div.style.backgroundColor = color;
+    }
+
+    // recorrer todos los div para pasarles la funcion pintar
+    let divs = document.querySelectorAll("div");
+    divs.forEach((div) => {
+      div.addEventListener("click", () => {
+        pintar(div, color);
+      })
+    })
+  </script>
+
 </body>
 
 </html>
