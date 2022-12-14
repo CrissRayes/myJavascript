@@ -30,18 +30,17 @@ const insertarHTML = (propiedades) => {
 // llamar a la funcion pasando el array de propiedades llamado propiedadesJSON que está en el archivo index.js
 insertarHTML(propiedadesJSON)
 
+// la función buscar_propiedad recibe el array de propiedades desde el onclick del boton buscar
 const buscar_propiedad = (propiedades) => {
   const cuartos = document.querySelector('#cuartos').value
   const metrosDesde = document.querySelector('#metros_desde').value
   const metrosHasta = document.querySelector('#metros_hasta').value
-
   // Valido que los campos no esten vacios, si lo estan muestro un alert
   if (cuartos == '' || metrosDesde == '' || metrosHasta == '') {
     alert('Hay campos sin completar')
   } else {
     // Si los campos estan completos, filtro el array de propiedades y llamo a la funcion insertarHTML pasandole el array filtrado
     const propiedadesFiltradas = propiedades.filter(propiedad => propiedad.cuartos == cuartos && propiedad.metros >= metrosDesde && propiedad.metros <= metrosHasta)
-    console.log(propiedadesFiltradas)
     insertarHTML(propiedadesFiltradas)
   }
 }
