@@ -4,7 +4,7 @@ const insertarHTML = (propiedades) => {
   for (const propiedad of propiedades) {
     html += `
     <div class="propiedad">
-      <div class="img" style="background-image: url(${propiedad.src})">
+      <div class="img" style="background-image: url('${propiedad.src}')">
       </div>
       <section>
         <h5>${propiedad.nombre}</h5>
