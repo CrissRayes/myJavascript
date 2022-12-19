@@ -34,14 +34,26 @@ console.log( arr.slice( 1, 3 ) ) // ['b', 'c']
 console.log( arr.slice() ) // ['a', 'b', 'c', 'd', 'e'] returns a copy of the original array
 
 // SPLICE
+// splice method is used to remove elements from an array
+// receives two arguments: the index where the removal starts and the number of elements to remove
+// 1.- the index where the removal starts, which is included in the removal
+// 2.- the number of elements to remove, which is included in the removal
 arr.splice( -1 ) // removes the last element of the array
 console.log( arr ) // ['a', 'b', 'c', 'd']
-
-// splice arguments: the index where the copy starts, the number of elements to remove
 arr.splice( 1, 2 ) // removes the second and third element of the array
 console.log( arr ) // ['a', 'd']
 
-// NEW AT
+// SLICE
+// slice method is used to copy a portion of an array into a new array
+// takes two arguments:
+// 1.- the index where the copy starts, which is included in the new array
+// 2.- the index where the copy ends, which is not included in the new array
+// example:
+const newArr = ['a', 'b', 'c', 'd', 'e']
+console.log( newArr.slice( 1, 3 ) ) // ['b', 'c']
+
+
+// AT
 // similar to bracket notation but it returns undefined if the index doesn't exist
 const myArr = ['queen', 'beatles', 'rolling stones', 'pink floyd']
 console.log( 'options for getting the third element of an array' )
