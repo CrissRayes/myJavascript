@@ -1,5 +1,5 @@
 // Seleccionar elementos del DOM
-const task = document.querySelector( '#task' )
+const taskInput = document.querySelector( '#task-input' )
 const totalTasks = document.querySelector( '#total-tasks' )
 const completedTasks = document.querySelector( '#completed-tasks' )
 const btnAddTask = document.querySelector( '#btn-add-task' )
@@ -11,7 +11,7 @@ let tasks = []
 // Funcion para agregar una tarea
 btnAddTask.addEventListener( 'click', () => {
   // validar si el input esta vacio
-  if ( task.value === '' ) {
+  if ( taskInput.value === '' ) {
     alert( 'El campo no puede estar vacío' )
     return
   }
@@ -19,7 +19,7 @@ btnAddTask.addEventListener( 'click', () => {
   // crear un objeto con la tarea
   const newTask = {
     id: Date.now(),
-    name: task.value,
+    name: taskInput.value,
     completed: false
   }
 
@@ -27,7 +27,7 @@ btnAddTask.addEventListener( 'click', () => {
   tasks.push( newTask )
 
   // limpiar el input
-  task.value = ''
+  taskInput.value = ''
 
   // ejecutar la funcion para mostrar las tareas
   showTasks()
