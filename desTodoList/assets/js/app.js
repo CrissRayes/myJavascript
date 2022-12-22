@@ -116,10 +116,6 @@ const completeTask = id => {
   showTasks()
 }
 
-// Ejecutar la funcion para mostrar las tareas
-showTasks()
-
-
 // checkbox que marca todas las tareas como completadas o incompletas
 const checkAll = document.querySelector( '#check-all' )
 checkAll.addEventListener( 'click', () => {
@@ -127,3 +123,5 @@ checkAll.addEventListener( 'click', () => {
   showTasks()
 } )
 
+// Ejecutar la funcion para mostrar las tareas
+showTasks()
