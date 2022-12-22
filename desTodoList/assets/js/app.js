@@ -123,7 +123,7 @@ showTasks()
 // checkbox que marca todas las tareas como completadas o incompletas
 const checkAll = document.querySelector( '#check-all' )
 checkAll.addEventListener( 'click', () => {
-  tasks.forEach( task => task.completed = checkAll.checked )
+  tasks.forEach( task => task.completed = checkAll.checked ) // por cada tarea si el checkbox esta marcado, cambiar el estado a true, si no, cambiarlo a false
   showTasks()
 } )
 
