@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Todo List</title>
 </head>
@@ -16,16 +19,17 @@
     <span>Realizadas: </span><span id="completed-tasks">0</span>
     <div>
       <label for="task-input">Nueva tarea</label>
-      <input type="text" id="task-input">
+      <input type="text" id="task-input" class="form-control">
       <button id="btn-add-task">Agregar</button>
     </div>
     <div id="information">
-      <table>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>ID</th>
             <th>Tarea</th>
-            <th colspan="2"></th>
+            <th>Status</th>
+            <th></th>
           </tr>
         </thead>
         <tbody id="tasks-detail">
