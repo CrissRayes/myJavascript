@@ -35,13 +35,13 @@ btnAddTask.addEventListener( 'click', () => {
     return
   }
 
-  let tempId = tasks.lenght + 1 // asignar el id del ultimo elemento + 1
+  let tempId = 1 // definir un id temporal con valor inicial 1
   const lastTask = tasks[tasks.length - 1] // obtener el ultimo elemento del array
 
-  if ( lastTask ) {
-    tempId = lastTask.id + 1
-  } else {
-    tempId = 1
+  if ( lastTask ) { // si existe un ultimo elemento
+    tempId = lastTask.id + 1 // sumarle 1 al id del ultimo elemento
+  } else { // si no existe un ultimo elemento
+    tempId // dejar el valor inicial de 1
   }
 
 
