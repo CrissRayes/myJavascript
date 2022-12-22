@@ -4,7 +4,28 @@ const btnAddTask = document.querySelector( '#btn-add-task' )
 const tasksDetail = document.querySelector( '#tasks-detail' )
 
 // crear un array vacio de tareas
-let tasks = []
+let tasks = [
+  {
+    id: 1,
+    name: 'Aprender JavaScript',
+    completed: false
+  },
+  {
+    id: 2,
+    name: 'Aprender React',
+    completed: false
+  },
+  {
+    id: 3,
+    name: 'Aprender Node',
+    completed: false
+  },
+  {
+    id: 4,
+    name: 'Aprender MongoDB',
+    completed: false
+  }
+]
 
 // Funcion para agregar una tarea
 btnAddTask.addEventListener( 'click', () => {
@@ -84,3 +105,6 @@ const completeTask = id => {
   // ejecutar la funcion para mostrar las tareas
   showTasks()
 }
+
+// Ejecutar la funcion para mostrar las tareas
+showTasks()
