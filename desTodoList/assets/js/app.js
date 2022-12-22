@@ -35,9 +35,19 @@ btnAddTask.addEventListener( 'click', () => {
     return
   }
 
+  let tempId = tasks.lenght + 1 // asignar el id del ultimo elemento + 1
+  const lastTask = tasks[tasks.length - 1] // obtener el ultimo elemento del array
+
+  if ( lastTask ) {
+    tempId = lastTask.id + 1
+  } else {
+    tempId = 1
+  }
+
+
   // crear un objeto con la tarea
   const newTask = {
-    id: Date.now(),
+    id: tempId,
     name: taskInput.value,
     completed: false
   }
