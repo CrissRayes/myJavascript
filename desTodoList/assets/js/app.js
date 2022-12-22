@@ -84,27 +84,3 @@ const completeTask = id => {
   // ejecutar la funcion para mostrar las tareas
   showTasks()
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
