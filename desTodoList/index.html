@@ -8,23 +8,29 @@
   <!-- bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/9df92a252f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <title>Todo List</title>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Todo List</h1>
-    <span>Total: </span><span id="total-tasks">0</span>
-    <span>Realizadas: </span><span id="completed-tasks">0</span>
-    <div>
-      <label for="task-input">Nueva tarea</label>
-      <input type="text" id="task-input" class="form-control">
-      <button id="btn-add-task">Agregar</button>
+  <div class="container mt-2">
+    <div class="d-flex justify-content-between">
+      <h1>Todo List</h1>
+      <div class="font-weight-bold text-right">
+        <span>Total: </span><span id="total-tasks">0</span><br>
+        <span>Realizadas: </span><span id="completed-tasks">0</span>
+      </div>
+
+    </div>
+    <div class="input-group my-2">
+      <input type="text" id="task-input" class="form-control rounded" placeholder="Nueva Tarea">
+      <button id="btn-add-task" class="btn btn-primary ml-1">Agregar</button>
     </div>
     <div id="information">
       <table class="table table-striped">
-        <thead>
+        <thead class="bg-primary text-white">
           <tr>
             <th>ID</th>
             <th>Tarea</th>

@@ -42,7 +42,7 @@ const showTasks = () => {
       <td class="${task.completed ? 'completed' : ''}">${task.id}</td>
       <td class="${task.completed ? 'completed' : ''}">${task.name}</td>
       <td><input type="checkbox" ${task.completed ? 'checked' : ''} onclick="completeTask(${task.id})"></td>
-      <td><button class="btn btn-danger" onclick="deleteTask(${task.id})">X</button></td>
+      <td><button class="btn btn-danger" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash-can"></i></button></td>
     </tr>
     `
   } )
