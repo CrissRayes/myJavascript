@@ -1,7 +1,5 @@
 // Seleccionar elementos del DOM
 const taskInput = document.querySelector( '#task-input' )
-const totalTasks = document.querySelector( '#total-tasks' )
-const completedTasks = document.querySelector( '#completed-tasks' )
 const btnAddTask = document.querySelector( '#btn-add-task' )
 const tasksDetail = document.querySelector( '#tasks-detail' )
 
@@ -43,13 +41,23 @@ const showTasks = () => {
     <tr>
       <td>${task.id}</td>
       <td>${task.name}</td>
-      <td><input type="checkbox" ${task.completed ? 'checked' : ''}></td>
+      <td><input type="checkbox" ${task.completed ? 'checked' : ''} onclick="completeTask(${task.id})"></td>
       <td><button class="btn btn-danger" onclick="deleteTask(${task.id})">X</button></td>
     </tr>
     `
   } )
   // agregar el elemento al html
   tasksDetail.innerHTML = tasksList
+
+  // contar el total de tareas
+  const totalTasks = document.querySelector( '#total-tasks' )
+  totalTasks.textContent = tasks.length
+
+  // contar las tareas completadas
+  const completedTasks = document.querySelector( '#completed-tasks' )
+  const totalCompletedTasks = tasks.filter( task => task.completed ).length
+  completedTasks.textContent = totalCompletedTasks
+
 }
 
 // Funcion para eliminar una tarea
@@ -66,3 +74,37 @@ const deleteTask = id => {
   // ejecutar la funcion para mostrar las tareas
   showTasks()
 }
+
+// Funcion para marcar una tarea como completada
+const completeTask = id => {
+  // buscar la tarea por su id
+  const task = tasks.find( task => task.id === id )
+  // cambiar el estado de la tarea
+  task.completed = !task.completed
+  // ejecutar la funcion para mostrar las tareas
+  showTasks()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
