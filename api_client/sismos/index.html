@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sismos</title>
+</head>
+
+<body>
+
+  <h1>Ultimos sismos en Chile</h1>
+  <div class="grafica">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <!-- CDN gráficos -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+
+    // funcion para obtener y retornar la data preparada para la gráfica
+    const getAndCreateDataToChart = async () => {
+      const response = await fetch( 'https://api.gael.cloud/general/public/sismos' )
+      const sismos = await response.json()
+
+      // Nota: el método map() crea un nuevo array con los resultados de la llamada a la función indicada aplicados a cada uno de sus elementos.
+      // mapear el array de sismos para obtener un array con las fechas
+      const labels = sismos.map( sismo => sismo.Fecha )
+      // tambien se puede escribir:
+      // const labels = sismos.map( ( sismo ) => {
+      //   return sismo.Fecha
+      // } )
+
+      // mapear el array de sismos para obtener un array con las magnitudes
+      const data = sismos.map( sismo => Number( sismo.Magnitud.split( " " )[0] ) )
+      // tambien se puede escribir:
+      // const data = sismos.map( ( sismo ) => {
+      //   const magnitud = sismo.Magnitud.split( " " )[0]
+      //   return Number( magnitud )
+      // } )
+
+      // crear el objeto de configuración de la gráfica
+      const datasets = [
+        {
+          label: 'Sismos',
+          data: data,
+          // también se puede escribir:
+          // data, ya que el nombre de la variable es igual al nombre de la propiedad
+          backgroundColor: 'rgba(255, 99, 132, 0.2)', // color de fondo de los puntos y de la linea
+          borderColor: 'rgba(255, 99, 132, 1)', // color del borde de los puntos
+          borderWidth: 1 // grosor del borde de los puntos
+        }
+      ]
+
+      return { labels, datasets }
+
+    }
+
+    // funcion para renderizar la grafica usando los datos retornados por la funcion getAndCreateDataToChart
+    const renderGrafica = async () => {
+      const data = await getAndCreateDataToChart() // obtener la data
+      const config = {
+        type: 'line', // puede ser 'line', 'bar', 'radar', 'doughnut', 'polarArea', 'bubble', 'scatter'
+        data: data
+      }
+      const myChart = document.getElementById( 'myChart' )
+      myChart.style.backgroundColor = 'white'
+      new Chart( myChart, config )
+    }
+
+    renderGrafica()
+  </script>
+</body>
+
+</html>
