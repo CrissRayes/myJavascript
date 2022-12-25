@@ -1,5 +1,5 @@
 // El método find sirve para encontrar un elemento en un array
-// y devuelve el primer elemento que cumpla la condición
+// * y devuelve el primer elemento que cumpla la condición
 // que le pasemos como parámetro
 // Parámetros:
 // Función de callback, que recibe 3 parámetros:

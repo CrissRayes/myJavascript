@@ -1,5 +1,5 @@
 // El método reduce se usa para reducir un array a un único valor.
-// Se puede usar para sumas, promedios, conteos, etc.
+// * Se puede usar para sumas, promedios, conteos, etc.
 // Parámetros:
 // Función de callback, que recibe 4 parámetros:
 // 1. Acumulador (accumulator)
