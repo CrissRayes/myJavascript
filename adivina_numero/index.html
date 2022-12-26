@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- My own styles -->
+  <link rel="stylesheet" href="style.css">
+  <title>Adivina el número</title>
+</head>
+
+<body>
+  <h1>Adivina el número</h1>
+  <span>(Entre 1 y 20)</span><br><br>
+  <button id="btn-reiniciar">Nueva Partida</button>
+  <br><br>
+  <div id="numero-oculto">?</div>
+  <p id="mensaje">Comineza a adivinar...</p>
+  <span>Puntaje: </span><span id="puntaje">0</span><br>
+  <span>Highscore: </span><span id="highscore">0</span>
+  <div>
+    <input type="text" id="input-numero">
+    <button id="btn-adivinar">Revisar</button>
+  </div>
+
+
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+
+</html>
