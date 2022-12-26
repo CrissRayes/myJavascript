@@ -1,62 +1,67 @@
 const mensaje = document.querySelector( '#mensaje' )
-
-// número aleatorio entre 1 y 20
-const numeroSecreto = Math.floor( Math.random() * 20 ) + 1
-
-// mostrar el número secreto en el DOM
-const numeroOculto = document.querySelector( '#numero-oculto' )
-numeroOculto.textContent = numeroSecreto
-
-// variable para el puntaje, comienza en 20 y se resta 1 por cada intento fallido
-let puntaje = 3
-// mostrar puntaje en el DOM
 const puntajeSpan = document.querySelector( '#puntaje' )
+const numeroOculto = document.querySelector( '#numero-oculto' )
+const btnReiniciar = document.querySelector( '#btn-reiniciar' )
+let numeroSecreto = Math.floor( Math.random() * 20 ) + 1
+let puntaje = 20
+let highscore = 0
+
 puntajeSpan.textContent = puntaje
 
-// funcion para restar 1 al puntaje y mostrarlo en el DOM
-const restarPuntaje = () => {
+const mostrarMensaje = ( nuevoMensaje ) => {
+  mensaje.textContent = nuevoMensaje
+}
+
+const restarPuntaje = ( nuevoMensaje ) => {
+  mostrarMensaje( nuevoMensaje )
   puntaje--
   puntajeSpan.textContent = puntaje
 }
 
-// evento click para el botón adivinar
+const colorear = ( fondo, texto ) => {
+  document.querySelector( 'body' ).style.backgroundColor = fondo
+  document.querySelector( 'body' ).style.color = texto
+}
+
 const btnAdivinar = document.querySelector( '#btn-adivinar' )
 btnAdivinar.addEventListener( 'click', () => {
   const adivina = Number( document.querySelector( '#input-numero' ).value )
-  // chequear si adivina viene vacío
   if ( !adivina ) {
-    mensaje.textContent = '⛔️ Debes ingresar un número'
+    mostrarMensaje( '⛔️ Debes ingresar un número' )
   } else if ( adivina === numeroSecreto ) {
-    mensaje.textContent = '🎉 ¡Ganaste!'
-  } else if ( adivina > numeroSecreto && puntaje > 1 ) {
-    mensaje.textContent = '🔺 Demasiado alto'
-    restarPuntaje()
-  } else if ( adivina < numeroSecreto && puntaje > 1 ) {
-    mensaje.textContent = '🔻 Demasiado bajo'
-    restarPuntaje()
-  } else {
-    if ( puntaje === 0 ) {
-      alert( 'Perdiste' )
-    } else {
-      mensaje.textContent = '💥 Perdiste'
-      restarPuntaje()
+    mostrarMensaje( '🎉 ¡Ganaste!' )
+    numeroOculto.textContent = adivina
+    colorear( '#60b347', '#ffffff' )
+
+    if ( puntaje > highscore ) {
+      highscore = puntaje
+      document.querySelector( '#highscore' ).textContent = highscore
     }
+
+  } else if ( adivina !== numeroSecreto ) {
+
+    if ( puntaje > 1 ) {
+      adivina > numeroSecreto ? restarPuntaje( '🔺 Demasiado alto' ) : restarPuntaje( '🔻 Demasiado bajo' )
+    } else {
+      mostrarMensaje( '💥 Perdiste' )
+      puntajeSpan.textContent = 0
+      colorear( '#000000', '#ffffff' )
+    }
+
   }
 
-  // limpiar el input
   document.querySelector( '#input-numero' ).value = ''
 
 } )
 
-// evento click para el botón reiniciar
-const btnReiniciar = document.querySelector( '#btn-reiniciar' )
-
 const reiniciarJuego = () => {
-  const numeroSecreto = Math.floor( Math.random() * 20 ) + 1
-  numeroOculto.textContent = numeroSecreto
-  puntaje = 3
+  numeroSecreto = Math.floor( Math.random() * 20 ) + 1
+  numeroOculto.textContent = '?'
+  puntaje = 20
   puntajeSpan.textContent = puntaje
-  mensaje.textContent = '🤔 Adivina el número'
+  mostrarMensaje( '🤔 Adivina el número' )
+  colorear( '#ffffff', '#000000' )
+  document.querySelector( '#input-numero' ).value = ''
 }
 
 btnReiniciar.addEventListener( 'click', reiniciarJuego )
