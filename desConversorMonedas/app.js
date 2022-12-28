@@ -66,7 +66,7 @@ btnConvert.addEventListener( 'click', () => {
     const data = await createData()
     const config = {
       type: 'line',
-      data,
+      data: data,
       options: {
         scales: {
           x: {
@@ -82,6 +82,15 @@ btnConvert.addEventListener( 'click', () => {
             beginAtZero: false
           }
 
+        },
+        animations: {
+          tension: {
+            duration: 1000,
+            easing: 'linear',
+            from: 1,
+            to: 0,
+            loop: true
+          }
         }
       }
     }
