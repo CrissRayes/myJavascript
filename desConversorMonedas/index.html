@@ -22,15 +22,16 @@
     <!-- card -->
     <div class="card bg-secondary text-white text-center rounded p-5 mt-5">
       <h2 class="mb-3">Pesos CLP</h2>
-      <input type="text" placeholder="Ingrese el monto en CLP" class="form-control form-control-lg text-center">
+      <input type="text" id="amount" placeholder="Ingrese el monto en CLP"
+        class="form-control form-control-lg text-center">
       <h4 class="my-3">Moneda a convertir:</h4>
-      <select name="moneda" id="moneda" class="form-select form-select-lg mb-3 text-center">
+      <select name="currency" id="currency" class="form-select form-select-lg mb-3 text-center">
         <option selected>Seleccione moneda</option>
         <option value="dolar">Dolar</option>
         <option value="euro">Euro</option>
       </select>
-      <button type="submit" class="btn btn-info btn-lg mb-3 text-white">Buscar</button>
-      <div class="mensaje text-white">•••</div>
+      <button type="submit" class="btn btn-info btn-lg mb-3 text-white" id="btn-convert">Buscar</button>
+      <div class="text-white" id="result">•••</div>
     </div>
     <!-- canva -->
     <div class="container">
@@ -38,6 +39,10 @@
     </div>
   </div>
 
+  <!-- CDN gráficos -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+  <!-- script -->
+  <script src="app.js"></script>
 </body>
 
 </html>
