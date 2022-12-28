@@ -16,14 +16,14 @@ btnConvert.addEventListener( 'click', () => {
   }
   console.log( getData() ) // TODO: Eliminar esta linea
 
-  // una vez obtenidos los datos, se ejecuta la funcion para convertir
-  // se usa then ya que getData() retorna una promesa y se necesita esperar a que se resuelva
-  getData().then( data => {
-    const value = data.serie[0].valor
+  const convert = async () => {
+    const data = await getData() // esperamos a que la funcion getData termine de ejecutarse
+    const value = data.serie[0].valor // obtenemos el valor del dolar o euro en la posicion 0
     const result = amount / value
-    // insertar el resultado en el DOM
-    document.getElementById( 'result' ).innerHTML = `${currency === 'dolar' ? '$' : '€'} ${result.toFixed( 2 )} `
-  } )
+    document.getElementById( 'result' ).innerHTML = `${currency === 'dolar' ? '$' : '€'} ${result.toFixed( 2 )}`
+  }
+  convert()
+
 } )
 
 
