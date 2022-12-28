@@ -31,17 +31,18 @@
         <option value="euro">Euro</option>
       </select>
       <button type="submit" class="btn btn-info btn-lg mb-3 text-white" id="btn-convert">Buscar</button>
-      <div class="text-white" id="result">•••</div>
+      <div class="text-white" id="message">•••</div>
     </div>
     <!-- canva -->
-    <div class="container">
-      <canvas id="myChart" width="400" height="400"></canvas>
+    <div class="chart" id="chart">
+      <canvas id="myChart"></canvas>
     </div>
   </div>
 
-  <!-- CDN gráficos -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-  <!-- script -->
+  <!-- scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
   <script src="app.js"></script>
 </body>
 
