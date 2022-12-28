@@ -25,7 +25,7 @@ btnConvert.addEventListener( 'click', () => {
       const data = await response.json()
       return data
     } catch ( error ) {
-      console.log( error.message )
+      showMessage( error.message )
     }
   }
 
