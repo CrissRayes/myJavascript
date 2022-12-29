@@ -1,6 +1,5 @@
 const btnConvert = document.getElementById( 'btn-convert' )
 const message = document.getElementById( 'message' )
-
 const showMessage = ( newMessage ) => {
   message.textContent = newMessage
 }
@@ -25,7 +24,7 @@ btnConvert.addEventListener( 'click', () => {
       const data = await response.json()
       return data
     } catch ( error ) {
-      showMessage( error.message )
+      showMessage( '⛔️ Ocurrio un error' )
     }
   }
 
@@ -47,14 +46,16 @@ btnConvert.addEventListener( 'click', () => {
 
   // funcion para crear data para el grafico
   const createData = async () => {
-    const data = await getData()
-    const labels = data.serie.map( ( item ) => item.fecha ) // obtenemos las fechas
-    const values = data.serie.map( ( item ) => item.valor ) // obtenemos los valores
+    const allData = await getData()
+    const data = allData.serie.slice( 0, 10 ) // obtenemos los ultimos 10 dias
+    const labels = data.map( ( item ) => item.fecha ) // obtenemos las fechas
+    const values = data.map( ( item ) => item.valor ) // obtenemos los valores
     // datasets es un arreglo de objetos que contiene la informacion para el grafico
     const datasets = [{
       label: currency === 'dolar' ? 'Dolar' : 'Euro',
-      borderColor: 'rgb(255, 99, 132)',
-      data: values
+      borderColor: 'rgb(75, 192, 192)',
+      data: values,
+      tension: 0.1 // curvatura de la linea
     }]
 
     return { values, labels, datasets }
@@ -68,28 +69,24 @@ btnConvert.addEventListener( 'click', () => {
       type: 'line',
       data: data,
       options: {
+        plugins: {
+          subtitle: {
+            display: true,
+            text: 'Ultimos 10 dias'
+          }
+        },
         scales: {
           x: {
             type: 'time',
             time: {
               unit: 'day',
               displayFormats: {
-                day: 'dd-MM-yy'
+                day: 'dd-MM'
               }
             }
           },
           y: {
             beginAtZero: false
-          }
-
-        },
-        animations: {
-          tension: {
-            duration: 1000,
-            easing: 'linear',
-            from: 1,
-            to: 0,
-            loop: true
           }
         }
       }
