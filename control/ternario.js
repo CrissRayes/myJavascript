@@ -14,5 +14,4 @@ function findGreaterOrEqual ( a, b ) {
 const activo = true;
 const mensaje = ( activo ) ? 'Activo' : 'Inactivo'; // Ternario habitual
 const mensaje2 = activo && 'Activo'; // Ternario corto, si activo es true, mensaje2 es 'Activo', de lo contrario devuelve false
-
-
+// en la práctica no es un ternario, sino que es un operador lógico AND corto-circuito
